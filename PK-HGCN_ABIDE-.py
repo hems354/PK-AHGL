@@ -492,21 +492,8 @@ for combination in itertools.product(*values):
             train_f1 = f1_score(y_train.numpy(), train_preds_label.numpy())
             train_sen = recall_score(y_train.numpy(), train_preds_label.numpy())
 
-            train_acc_scores.append(train_acc)
-            train_auc_scores.append(train_auc)
-            train_f1_scores.append(train_f1)
-            train_sen_scores.append(train_sen)
 
             print(f"Train ACC: {train_acc}, train_AUC: {train_auc},Train F1: {train_f1}, Train_Sensitivity: {train_sen}\n")
-    avg_acc = np.mean(acc_scores)
-    std_acc = np.std(acc_scores)
-    avg_auc = np.mean(auc_scores)
-    std_auc = np.std(auc_scores)
-
-    avg_f1 = np.mean(f1_scores)
-    std_f1 = np.std(f1_scores)
-    avg_sen = np.mean(sen_scores)
-    std_sen = np.std(sen_scores)
 
     acc_scores_early_stop = np.mean(acc_scores_early_stops)
     std_acc_scores_early_stop = np.std(acc_scores_early_stops)
@@ -523,10 +510,6 @@ for combination in itertools.product(*values):
     precision_scores_early_stop = np.mean(precision_scores_early_stops)
     std_precision_scores_early_stop = np.std(precision_scores_early_stops)
 
-    print(f"Average ACC: {avg_acc:.4f} ± {std_acc:.4f}")
-    print(f"Average AUC: {avg_auc:.4f} ± {std_auc:.4f}")
-    print(f"Average SEN: {avg_sen:.4f} ± {std_sen:.4f}")
-    print(f"Average F1: {avg_f1:.4f} ± {std_f1:.4f}")
     print(f"atlas = {atlas},dropout:{dropout},Average acc best: {acc_scores_early_stop:.4f} ± {std_acc_scores_early_stop:.4f}")
     print(f"atlas = {atlas},dropout:{dropout},Average auc best: {auc_scores_early_stop:.4f} ± {std_auc_scores_early_stop:.4f}")
     print(f"atlas = {atlas},dropout:{dropout},Average F1 best: {F1_scores_early_stop:.4f} ± {std_F1_scores_early_stop:.4f}")
