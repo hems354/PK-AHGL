@@ -35,7 +35,7 @@ from nilearn.plotting import find_parcellation_cut_coords
 from scipy.spatial.distance import cdist
 
 device = torch.device('cuda:2' if torch.cuda.is_available() else 'cpu')
-work_dir = '/data/wjc/Mamba_hyper_brainnet'
+work_dir = '/'
 
 def setup_seed(seed):
     torch.manual_seed(seed)
